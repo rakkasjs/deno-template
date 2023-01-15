@@ -1,0 +1,13 @@
+{
+  "tasks": {
+    "dev": "deno run -A --node-modules-dir npm:rakkasjs@0.6.12",
+    "build": "deno run -A --node-modules-dir npm:rakkasjs@0.6.12 build",
+    "serve": "deno run -A --node-modules-dir --import-map=import_map.prod.json deno-entry.ts",
+    "deploy": "deno run -A npm:@hattip/bundler-deno@0.0.26 deno-entry.ts dist/deploy-entry.js && cd dist && deployctl deploy --project=rakkas ./deploy-entry.js --exclude server"
+  },
+  "importMap": "import_map.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
+}
